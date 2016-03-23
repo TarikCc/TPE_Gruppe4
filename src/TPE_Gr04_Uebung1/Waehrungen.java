@@ -1,19 +1,15 @@
 package TPE_Gr04_Uebung1;
 
 public class Waehrungen {
-	 /** US-Dollar */
-		public static final Waehrung DOLLAR = new Waehrungen ("Dollar", "$", 10000 ,  true);
 
-	    /** EURO */
-	    public static final Waehrung  EURO   = new Waehrungen ( "Euro", "€",  12690 ,  true);
-	    
-	    /** Japanischer Yen */
-	    public static final Waehrung  YEN    = new Waehrungen ( "Yen", "¥",  91 ,  false);
+	public static final Waehrung DOLLAR = new Waehrung("DOLLAR", "$", 10000);
 
-	    /** Rubel der russischen Foerderation */
-	    public static final Waehrung RUBEL  = new Waehrungen ( "Rubel", "RUB",  255 ,  true);
-	    		
-	    /** Schweizer Franken */
-	    public static final Waehrung CHF    = new Waehrungen ( "Schweizer Franken", "CHF",  10509 ,  true);
-	}
+	public static final Waehrung EURO = new Waehrung("EURO", "€", 12690);
 
+	public static final Waehrung YEN = new Waehrung("YEN", "¥", 91);
+
+	public static final Waehrung RUBEL = new Waehrung("RUBEL", "RUB", 255);
+
+	public static final Waehrung CHF = new Waehrung("Schweizer Franken", "CHF",
+			10509);
+}

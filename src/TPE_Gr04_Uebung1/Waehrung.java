@@ -13,23 +13,14 @@ public class Waehrung {
 
 	}
 
-	/**
-	 * @return the name
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @return the kuerzel
-	 */
 	public String getKuerzel() {
 		return kuerzel;
 	}
 
-	/**
-	 * @return the kurs
-	 */
 	public long getKurs() {
 		return kurs;
 	}
@@ -46,4 +37,62 @@ public class Waehrung {
 
 		return endBetrag;
 	}
+
+	public String toString() {
+		return "" + getName() + "[" + getKuerzel() + "] 1$" + getKurs();
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((kuerzel == null) ? 0 : kuerzel.hashCode());
+		result = prime * result + (int) (kurs ^ (kurs >>> 32));
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Waehrung)) {
+			return false;
+		}
+		Waehrung other = (Waehrung) obj;
+		if (kuerzel == null) {
+			if (other.kuerzel != null) {
+				return false;
+			}
+		} else if (!kuerzel.equals(other.kuerzel)) {
+			return false;
+		}
+		if (kurs != other.kurs) {
+			return false;
+		}
+		if (name == null) {
+			if (other.name != null) {
+				return false;
+			}
+		} else if (!name.equals(other.name)) {
+			return false;
+		}
+		return true;
+	}
+
 }
