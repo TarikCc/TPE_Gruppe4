@@ -91,18 +91,10 @@ public class Betrag {
 		return promilleErgeb;
 
 	}
-	
-	public long getVorkomma() {
-		
-	}
 
 	public String toString() {
 		return ""+ getVorzeichen() + betrag + waehrung.getKuerzel();
 	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -127,5 +119,4 @@ public class Betrag {
 		}
 		return true;
 	}
-	
 }
