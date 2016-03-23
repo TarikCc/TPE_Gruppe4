@@ -15,6 +15,19 @@ public class Betrag {
 		this.waehrung = waehrung;
 	}
 
+	public int getVorzeichen() {
+
+		if (this.betrag > 0) {
+			return 1;
+
+		} else if (this.betrag < 0) {
+			return -1;
+
+		} else {
+			return 1;
+		}
+	}
+
 	public Betrag addiere(Betrag aBetrag) {
 
 		if (aBetrag.waehrung == this.waehrung) {
@@ -49,32 +62,70 @@ public class Betrag {
 			return ergeb2;
 		}
 	}
-	
-	public Betrag multi (double wert) {
-		long neuBetrag = (long) (wert* this.betrag);
+
+	public Betrag multi(double wert) {
+		long neuBetrag = (long) (wert * this.betrag);
 		Betrag multiBetrag = new Betrag(neuBetrag, this.waehrung);
 		return multiBetrag;
-		
+
+	}
+
+	public Betrag multi(int wert) {
+		long neuBetrag = (wert * this.betrag);
+		Betrag multiBetrag = new Betrag(neuBetrag, this.waehrung);
+		return multiBetrag;
+
+	}
+
+	public Betrag prozent(int prozentWert) {
+		double prozentSatz = prozentWert / 100;
+		double prozentBetrag = (prozentSatz * this.betrag);
+		Betrag prozentErgeb = new Betrag(prozentBetrag, this.waehrung);
+		return prozentErgeb;
+	}
+
+	public Betrag promille(int promilleWert) {
+		double promilleSatz = promilleWert / 1000;
+		double promilleBetrag = (promilleSatz * this.betrag);
+		Betrag promilleErgeb = new Betrag(promilleBetrag, this.waehrung);
+		return promilleErgeb;
+
+	}
+	
+	public long getVorkomma() {
 		
 	}
-	 public Betrag multi (int wert) {
-		 long neuBetrag = (wert* this.betrag);
-		 Betrag multiBetrag = new Betrag(neuBetrag, this.waehrung);
-		 return multiBetrag;
-		 
-	 }
-	 
-	 public Betrag prozent (int prozentWert) {
-				double prozentSatz = prozentWert / 100;
-				double prozentBetrag = (prozentSatz * this.betrag);
-				Betrag prozentErgeb = new Betrag(prozentBetrag, this.waehrung);
-				return prozentErgeb;
-	 }
-	 public Betrag promille (int promilleWert) {
-		 double promilleSatz = promilleWert / 1000;
-		 double promilleBetrag = (promilleSatz * this.betrag);
-		 Betrag promilleErgeb = new Betrag(promilleBetrag, this.waehrung);
-		 return promilleErgeb;
-		 
-	 }
+
+	public String toString() {
+		return ""+ getVorzeichen() + betrag + waehrung.getKuerzel();
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Betrag)) {
+			return false;
+		}
+		Betrag other = (Betrag) obj;
+		if (betrag != other.betrag) {
+			return false;
+		}
+		if (waehrung == null) {
+			if (other.waehrung != null) {
+				return false;
+			}
+		} else if (!waehrung.equals(other.waehrung)) {
+			return false;
+		}
+		return true;
+	}
+	
 }
