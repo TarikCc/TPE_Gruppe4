@@ -49,4 +49,32 @@ public class Betrag {
 			return ergeb2;
 		}
 	}
+	
+	public Betrag multi (double wert) {
+		long neuBetrag = (long) (wert* this.betrag);
+		Betrag multiBetrag = new Betrag(neuBetrag, this.waehrung);
+		return multiBetrag;
+		
+		
+	}
+	 public Betrag multi (int wert) {
+		 long neuBetrag = (wert* this.betrag);
+		 Betrag multiBetrag = new Betrag(neuBetrag, this.waehrung);
+		 return multiBetrag;
+		 
+	 }
+	 
+	 public Betrag prozent (int prozentWert) {
+				double prozentSatz = prozentWert / 100;
+				double prozentBetrag = (prozentSatz * this.betrag);
+				Betrag prozentErgeb = new Betrag(prozentBetrag, this.waehrung);
+				return prozentErgeb;
+	 }
+	 public Betrag promille (int promilleWert) {
+		 double promilleSatz = promilleWert / 1000;
+		 double promilleBetrag = (promilleSatz * this.betrag);
+		 Betrag promilleErgeb = new Betrag(promilleBetrag, this.waehrung);
+		 return promilleErgeb;
+		 
+	 }
 }
