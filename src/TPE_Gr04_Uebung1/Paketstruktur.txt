@@ -1,3 +1,4 @@
-Wir haben uns für nur ein package entschieden (TPE_Gr04_Uebung1),
-da wir es für am sinnvollsten halten unsere packages nach den Übungen zu strukturieren.
-Deshalb auch die Namenswahl TPE_Gr04_Uebung1, welche Vorlesung, Gruppenkennung und Übung beinhaltet für optimale Zuordnung.
+Wir haben uns fÃ¼r nur ein package entschieden (TPE_Gr04_Uebung1),
+da wir es fÃ¼r am sinnvollsten halten unsere packages nach den Ãœbungen zu strukturieren.
+Deshalb auch die Namenswahl TPE_Gr04_Uebung1, welche Vorlesung, 
+Gruppenkennung und Ãœbung beinhaltet fÃ¼r optimale Zuordnung.

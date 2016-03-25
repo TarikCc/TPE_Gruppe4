@@ -1,20 +1,52 @@
 package TPE_Gr04_Uebung1;
 
+/**
+ * Die Klasse realisiert Beträge eines Kontos. Beim Anlegen eines Objektes muss
+ * sowohl Betrag als auch die Währung angegeben werden. Man kann den Betrag
+ * entweder als double oder als long angegeben. Es werden sowohl positive wie
+ * auch negative Beträge verwaltet. Beträge können addiert, subtrahiert und mit
+ * einem double-Wert oder int-Wert multipliziert werden. Brechenen eines
+ * Prozentwertes von einem Betrag. Berechnen eines Promillewertes von einem
+ * Betrag.
+ * 
+ * @author mariellefeil
+ *
+ */
+
 public class Betrag {
 
 	private long betrag;
 	private Waehrung waehrung;
 
+	/**
+	 * Konstruktor, erzeugt Betrag in einer Währung als long
+	 * 
+	 * @param betrag
+	 *            - z.B. 10$
+	 * @param waehrung
+	 *            - z.B. Euro
+	 */
 	public Betrag(long betrag, Waehrung waehrung) {
 		this.betrag = betrag;
 		this.waehrung = waehrung;
 	}
 
+	/**
+	 * Konstruktor, erzeugt Betrag in Währung als double
+	 * 
+	 * @param betrag
+	 * @param waehrung
+	 */
 	public Betrag(double betrag, Waehrung waehrung) {
 		this.betrag = (long) (betrag * 10000);
 		this.waehrung = waehrung;
 	}
 
+	/**
+	 * Methode zum Feststellen ob Betrag postiv oder negativ.
+	 * 
+	 * @return gibt entweder 1 für positiv oder -1 für negativ zurück.
+	 */
 	public int getVorzeichen() {
 
 		if (this.betrag > 0) {
@@ -28,6 +60,12 @@ public class Betrag {
 		}
 	}
 
+	/**
+	 * Addiert zwei Beträge.
+	 * 
+	 * @param aBetrag
+	 * @return
+	 */
 	public Betrag addiere(Betrag aBetrag) {
 
 		if (aBetrag.waehrung == this.waehrung) {
@@ -93,8 +131,9 @@ public class Betrag {
 	}
 
 	public String toString() {
-		return ""+ getVorzeichen() + betrag + waehrung.getKuerzel();
+		return "" + getVorzeichen() + betrag + waehrung.getKuerzel();
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {

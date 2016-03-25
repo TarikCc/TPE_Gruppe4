@@ -1,5 +1,14 @@
 package TPE_Gr04_Uebung1;
 
+/**
+ * Diese Klasse enthält vorgefertigte Objekte von Waehrungen mit den jeweiligen
+ * Wechselkursen, dient zur Wiederverwundung innerhalb des Programms DOLLAR ,
+ * EURO, YEN , RUBEL, SCHWEIZER FRANKEN
+ * 
+ * @author mariellefeil
+ *
+ */
+
 public class Waehrungen {
 
 	public static final Waehrung DOLLAR = new Waehrung("DOLLAR", "$", 10000);
