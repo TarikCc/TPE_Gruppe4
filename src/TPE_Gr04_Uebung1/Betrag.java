@@ -170,7 +170,7 @@ public class Betrag {
 	}
 
 	public long getNachkomma() {
-		return 
+		return ((this.betrag * 100) % 100) ;
 		
 	}
 
