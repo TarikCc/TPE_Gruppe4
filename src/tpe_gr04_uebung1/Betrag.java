@@ -1,4 +1,4 @@
-package TPE_Gr04_Uebung1;
+package tpe_gr04_uebung1;
 
 /**
  * Die Klasse realisiert Beträge eines Kontos. Beim Anlegen eines Objektes muss
@@ -9,7 +9,7 @@ package TPE_Gr04_Uebung1;
  * Prozentwertes von einem Betrag. Berechnen eines Promillewertes von einem
  * Betrag.
  * 
- * @author mariellefeil
+ * @author Tarik, Mani, Fabienne
  *
  */
 
@@ -65,16 +65,6 @@ public class Betrag {
 	 * 
 	 * @param addBetrag
 	 *            - zu addierender Betrag
-	 * @param addBetrag1
-	 *            -
-	 * @param addBetrag2
-	 *            -
-	 * @param neuBetrag
-	 *            -
-	 * @param ergeb1
-	 *            -
-	 * @param ergeb2
-	 *            - Ergebnis
 	 * @return - gibt das Ergebnis der Addition 2er Beträge zurück
 	 */
 	public Betrag addiere(Betrag addBetrag) {

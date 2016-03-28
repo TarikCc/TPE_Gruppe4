@@ -1,7 +1,8 @@
-package TPE_Gr04_Uebung1;
+package tpe_gr04_uebung1;
 
 /**
- * @author mariellefeil
+ * 
+ * @author Fabienne, Tarik, Mani
  *
  */
 
@@ -12,12 +13,25 @@ public class Konto {
 	int p = 0;
 	Betrag guthaben;
 
+	/**
+	 * @param inhaber
+	 * @param guthaben
+	 */
 	public Konto(String inhaber, Betrag guthaben) {
 		this.inhaber = inhaber;
 		this.guthaben = guthaben;
 
 	}
 
+	/**
+	 * Es könne Beträge auf das Konto gebucht werden (positive wie negative)
+	 * wenn gebuchter Betrag in einer anderen Fremdwährung erfolgt wird er in
+	 * die Währung des Kontos umgerechnet
+	 * 
+	 * @param betrag
+	 *            - Betrag der auf das Konto gebucht wird
+	 * 
+	 */
 	public void buche(Betrag betrag) {
 		Waehrung neu = betrag.getWaehrung();
 
@@ -41,10 +55,22 @@ public class Konto {
 
 	}
 
+	/**
+	 * Liefert Summer aller Buchungen
+	 * 
+	 * @return- Guthaben, gibt vollen Betrag des Kontos zurück
+	 */
 	public Betrag saldo() {
 		return this.guthaben;
 
 	}
+
+	/**
+	 * Ermöglicht Abzug eines gewissen Promillesatz vom Konto
+	 * 
+	 * @param promille
+	 *            - Promillesatz an Gebühren
+	 */
 
 	public void gebuehren(int promille) {
 		double promilleSatz = (double) promille / 1000;
@@ -56,12 +82,19 @@ public class Konto {
 	}
 
 	/**
-	 * @return the inhaber
+	 * Liefert den Kontoinhaber
+	 * 
+	 * @return -gibt den Inhaber des Kontos zurück
 	 */
 	public String getInhaber() {
 		return inhaber;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() {
 		String ausgabe = "Kontoinhaber: " + this.inhaber + "\nWährung: "
 				+ this.guthaben.getWaehrung().getKuerzel() + "\n ------";
@@ -77,6 +110,11 @@ public class Konto {
 				+ this.guthaben.getWaehrung().getKuerzel();
 	}
 
+	/**
+	 * Liefert die Währung des Kontos
+	 * 
+	 * @return - gibt die Waherung des Kontos zurück
+	 */
 	public Waehrung getWaehrung() {
 		return this.guthaben.getWaehrung();
 	}

@@ -1,4 +1,4 @@
-package TPE_Gr04_Uebung1;
+package tpe_gr04_uebung1;
 
 /**
  * Diese Klasse enthält vorgefertigte Objekte von Waehrungen mit den jeweiligen
