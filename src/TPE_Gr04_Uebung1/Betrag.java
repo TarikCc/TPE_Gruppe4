@@ -61,29 +61,44 @@ public class Betrag {
 	}
 
 	/**
-	 * Addiert zwei Beträge.
+	 * Addiert zwei Beträge. Rechnet diese erst in gleiche Währung um.
 	 * 
-	 * @param aBetrag
-	 * @return
+	 * @param addBetrag
+	 *            - zu addierender Betrag
+	 * @param addBetrag1
+	 *            -
+	 * @param addBetrag2
+	 *            -
+	 * @param neuBetrag
+	 *            -
+	 * @param ergeb1
+	 *            -
+	 * @param ergeb2
+	 *            - Ergebnis
+	 * @return - gibt das Ergebnis der Addition 2er Beträge zurück
 	 */
-	public Betrag addiere(Betrag aBetrag) {
+	public Betrag addiere(Betrag addBetrag) {
 
-		if (aBetrag.waehrung == this.waehrung) {
-			long addiereBetrag1 = aBetrag.betrag + this.betrag;
-			Betrag ergeb1 = new Betrag(addiereBetrag1, this.waehrung);
+		if (addBetrag.waehrung == this.waehrung) {
+			long addBetrag1 = addBetrag.betrag + this.betrag;
+			Betrag ergeb1 = new Betrag(addBetrag1, this.waehrung);
 			return ergeb1;
 		} else {
 
-			long neuBetrag = aBetrag.waehrung.umrechnen(aBetrag.betrag,
+			long neuBetrag = addBetrag.waehrung.umrechnen(addBetrag.betrag,
 					this.waehrung);
-			long addiereBetrag2 = neuBetrag + this.betrag;
-			Betrag ergeb2 = new Betrag(addiereBetrag2, this.waehrung);
+			long addBetrag2 = neuBetrag + this.betrag;
+			Betrag ergeb2 = new Betrag(addBetrag2, this.waehrung);
 			return ergeb2;
 
 		}
 
 	}
 
+	/**
+	 * @param aBetrag
+	 * @return
+	 */
 	public Betrag subtrahiere(Betrag aBetrag) {
 
 		if (aBetrag.waehrung == this.waehrung) {
@@ -101,6 +116,10 @@ public class Betrag {
 		}
 	}
 
+	/**
+	 * @param wert
+	 * @return
+	 */
 	public Betrag multi(double wert) {
 		long neuBetrag = (long) (wert * this.betrag);
 		Betrag multiBetrag = new Betrag(neuBetrag, this.waehrung);
@@ -108,6 +127,10 @@ public class Betrag {
 
 	}
 
+	/**
+	 * @param wert
+	 * @return
+	 */
 	public Betrag multi(int wert) {
 		long neuBetrag = (wert * this.betrag);
 		Betrag multiBetrag = new Betrag(neuBetrag, this.waehrung);
@@ -115,6 +138,10 @@ public class Betrag {
 
 	}
 
+	/**
+	 * @param prozentWert
+	 * @return
+	 */
 	public Betrag prozent(int prozentWert) {
 		double prozentSatz = prozentWert / 100;
 		double prozentBetrag = (prozentSatz * this.betrag);
@@ -122,6 +149,10 @@ public class Betrag {
 		return prozentErgeb;
 	}
 
+	/**
+	 * @param promilleWert
+	 * @return
+	 */
 	public Betrag promille(int promilleWert) {
 		double promilleSatz = promilleWert / 1000;
 		double promilleBetrag = (promilleSatz * this.betrag);
@@ -130,8 +161,58 @@ public class Betrag {
 
 	}
 
+	/**
+	 * @return
+	 */
+	public int getVorkomma() {
+		return (int) this.betrag;
+
+	}
+
+	public long getNachkomma() {
+		return 
+		
+	}
+
+	/**
+	 * 
+	 */
 	public String toString() {
 		return "" + getVorzeichen() + betrag + waehrung.getKuerzel();
+	}
+
+	public double inDouble() {
+		return ((this.betrag / 100) / 100.0);
+	}
+
+	/**
+	 * @return the betrag
+	 */
+	public long getBetrag() {
+		return betrag;
+	}
+
+	/**
+	 * @return the waehrung
+	 */
+	public Waehrung getWaehrung() {
+		return waehrung;
+	}
+
+	/**
+	 * @param betrag
+	 *            the betrag to set
+	 */
+	public void setBetrag(long betrag) {
+		this.betrag = betrag;
+	}
+
+	/**
+	 * @param waehrung
+	 *            the waehrung to set
+	 */
+	public void setWaehrung(Waehrung waehrung) {
+		this.waehrung = waehrung;
 	}
 
 	@Override
