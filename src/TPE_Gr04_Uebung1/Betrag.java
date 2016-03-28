@@ -96,19 +96,19 @@ public class Betrag {
 	}
 
 	/**
-	 * @param aBetrag
-	 * @return
+	 * @param addBetrag
+	 * @return - gibt das Ergebnis der Subtraktion 2er Beträge zurück
 	 */
-	public Betrag subtrahiere(Betrag aBetrag) {
+	public Betrag subtrahiere(Betrag addBetrag) {
 
-		if (aBetrag.waehrung == this.waehrung) {
-			long subtrahiereBetrag1 = aBetrag.betrag + this.betrag;
+		if (addBetrag.waehrung == this.waehrung) {
+			long subtrahiereBetrag1 = addBetrag.betrag + this.betrag;
 			Betrag ergeb1 = new Betrag(subtrahiereBetrag1, this.waehrung);
 			return ergeb1;
 
 		} else {
 
-			long neuBetrag = aBetrag.waehrung.umrechnen(aBetrag.betrag,
+			long neuBetrag = addBetrag.waehrung.umrechnen(addBetrag.betrag,
 					this.waehrung);
 			long subtrahiereBetrag2 = neuBetrag + this.betrag;
 			Betrag ergeb2 = new Betrag(subtrahiereBetrag2, this.waehrung);
@@ -118,7 +118,7 @@ public class Betrag {
 
 	/**
 	 * @param wert
-	 * @return
+	 * @return - gibt den multiplizierten Betrag mit einem double-Wert zurück
 	 */
 	public Betrag multi(double wert) {
 		long neuBetrag = (long) (wert * this.betrag);
@@ -129,7 +129,7 @@ public class Betrag {
 
 	/**
 	 * @param wert
-	 * @return
+	 * @return - gibt den multiplizierten Betrag mit einem int-Wert zurück
 	 */
 	public Betrag multi(int wert) {
 		long neuBetrag = (wert * this.betrag);
@@ -140,7 +140,7 @@ public class Betrag {
 
 	/**
 	 * @param prozentWert
-	 * @return
+	 * @return- gibt den Prozentwert von einem Betrag zurück
 	 */
 	public Betrag prozent(int prozentWert) {
 		double prozentSatz = prozentWert / 100;
@@ -151,7 +151,7 @@ public class Betrag {
 
 	/**
 	 * @param promilleWert
-	 * @return
+	 * @return - gibt den Promillewert von einem Betrag zurück
 	 */
 	public Betrag promille(int promilleWert) {
 		double promilleSatz = promilleWert / 1000;
@@ -162,25 +162,33 @@ public class Betrag {
 	}
 
 	/**
-	 * @return
+	 * @return - gibt nur die Stellen vor dem Komma zurück
 	 */
 	public int getVorkomma() {
 		return (int) this.betrag;
 
 	}
+	
 
+	/**
+	 * @return- gibt nur die Stellen nach dem Komma zurück
+	 */
 	public long getNachkomma() {
 		return ((this.betrag * 100) % 100) ;
 		
 	}
 
 	/**
-	 * 
+	 * @return- gibt den gesamten Wert als String zurück, mit Währungsangabe ,führender Null 
+	 * und Vorzeichen bei negativen Beträgen
 	 */
 	public String toString() {
 		return "" + getVorzeichen() + betrag + waehrung.getKuerzel();
 	}
 
+	/**
+	 * @return - eine Zahl wird in ein double-Wert komvertiert
+	 */
 	public double inDouble() {
 		return ((this.betrag / 100) / 100.0);
 	}
