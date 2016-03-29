@@ -6,8 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-
-
 /**
  * Testklasse Waehrung - testet alle Methoden der Klasse Währung
  * @author Tarik, Fabienne , Mani
@@ -113,6 +111,16 @@ public class WaehrungTest {
 		assertEquals(test.hashCode(), test1.hashCode());
 
 	}
+	@Test
+	public void testToString() {
+		Waehrung franken = Waehrungen.CHF;
+		Waehrung euros = Waehrungen.EURO;
+		String ausgabe = "Schweizer Franken[CHF] 1$ = 10509 CHF";
+		String ausgabeEuro = "EURO[€] 1$ = 12690 €";
+
+		assertEquals(franken.toString(), ausgabe);
+		assertEquals(euros.toString(), ausgabeEuro);
+	}
 
 	@Test
 	public void testEquals() {
@@ -128,14 +136,6 @@ public class WaehrungTest {
 	}
 
 	
-	@Test
-	public void testToString() {
-		Waehrung franken = Waehrungen.CHF;
-		Waehrung euros = Waehrungen.EURO;
-		String ausgabe = "Schweizer Franken[CHF] 1$ = 10509";
-		String ausgabeEuro = "Euro[€] 1$ = 12690";
-
-		assertEquals(franken.toString(), ausgabe);
-		assertEquals(euros.toString(), ausgabeEuro);
-   }
+	
+	
 }

@@ -6,12 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-
-
 public class KontoTest {
-
-	
-	public class AccountTest {
 
 		@Test
 		public void testCreation() {
@@ -72,14 +67,13 @@ public class KontoTest {
 
 		@Test
 		public void testGebuehren() {
-			Konto kontoNew = new Konto ("Kunde", new Betrag (100,Waehrungen.CHF));
-			kontoNew.gebuehren(2);
-			
-			
-			Betrag promilleGuthaben = new Betrag (99.8,Waehrungen.CHF);
-			
-			assertEquals(kontoNew.saldo(), promilleGuthaben);
-			
+		Konto kontoNeu = new Konto("Kunde", new Betrag(100, Waehrungen.CHF));
+		kontoNeu.gebuehren(2);
+
+		Betrag promilleGuthaben = new Betrag (99.8, Waehrungen.CHF);
+
+		assertEquals (kontoNeu.saldo(), promilleGuthaben);
+		
 		}
 
 		@Test
@@ -113,4 +107,3 @@ public class KontoTest {
 
 		}
 	}
-}

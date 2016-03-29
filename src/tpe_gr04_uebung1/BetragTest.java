@@ -148,7 +148,7 @@ public class BetragTest {
 	}
 
 	@Test
-	public void testGetCurrency() {
+	public void testGetWaehrung() {
 		
 		Betrag betragEuro = new Betrag(-232, Waehrungen.EURO);
 		Betrag betragRubel = new Betrag(7436, Waehrungen.RUBEL);
@@ -167,11 +167,11 @@ public class BetragTest {
 	@Test
 	public void testToString() {
 		
-		assertEquals("Rubel [RUB] 1$ = 0,0255 RUB", new Betrag (13134, Waehrungen.RUBEL).toString());
-		assertEquals("Euro [€] 1$ = 1,2690 €", new Betrag (3453, Waehrungen.EURO).toString());
-		assertEquals("Dollar [$] 1$ = 1,0000 $", new Betrag (143534, Waehrungen.DOLLAR).toString());
-		assertEquals("Schweizer Franken [CHF] 1$ = 1,0509 CHF", new Betrag(567134, Waehrungen.CHF).toString());
-		assertEquals("Yen [¥] 1$ = 0,0091 ¥", new Betrag(8749328, Waehrungen.YEN).toString());
+		assertEquals("9900 RUB", new Betrag (9900, Waehrungen.RUBEL).toString());
+		assertEquals("129000 €", new Betrag (129000, Waehrungen.EURO).toString());
+		assertEquals("111900 $", new Betrag (111900, Waehrungen.DOLLAR).toString());
+		assertEquals("11200 CHF", new Betrag(11200, Waehrungen.CHF).toString());
+		assertEquals("329800 ¥", new Betrag(329800, Waehrungen.YEN).toString());
 	}
 
 	@Test
@@ -194,8 +194,20 @@ public class BetragTest {
 		
 		assertEquals(betragEuro.hashCode(), betragEuro2.hashCode());
 		
+	}
+	
+	@Test 
+	public void testGetVorkomma() {
 		
+		Betrag betrag = new Betrag (12.10, Waehrungen.EURO);
 		
-
+		assertEquals(betrag.getVorkomma(), 12);
+		
+	}
+	@Test
+	public void testGetNachkomma() {
+		
+		Betrag betrag = new Betrag (12.55, Waehrungen.CHF);
+		assertEquals(betrag.getNachkomma(),55);
 	}
 }
