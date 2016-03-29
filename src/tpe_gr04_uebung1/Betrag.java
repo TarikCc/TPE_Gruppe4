@@ -164,7 +164,7 @@ public class Betrag {
 	 * @return- gibt nur die Stellen nach dem Komma zurück
 	 */
 	public long getNachkomma() {
-		return ((getBetrag() * 100) % 100) ;
+		return ((this.betrag * 100) % 100) ;
 		
 	}
 
@@ -194,7 +194,7 @@ public class Betrag {
 	 * @return the betrag
 	 */
 	public long getBetrag() {
-		return this.betrag;
+		return betrag;
 	}
 
 	/**

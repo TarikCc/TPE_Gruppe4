@@ -3,7 +3,7 @@ package tpe_gr04_uebung1;
 import java.util.Arrays;
 
 /**
- * 
+ * Klasse Konto ermöglicht Buchungen zu verwalten
  * @author Fabienne, Tarik, Mani
  *
  */
@@ -16,8 +16,9 @@ public class Konto {
 	Betrag guthaben;
 
 	/**
-	 * @param inhaber
-	 * @param guthaben
+	 * Konstruktur erzeugt Inhaber und Guthaben der Klasse Betrag
+	 * @param inhaber - Inhaber des Kontos
+	 * @param guthaben - Guthaben des Inhabers auf dem Konto
 	 */
 	public Konto(String inhaber, Betrag guthaben) {
 		this.inhaber = inhaber;

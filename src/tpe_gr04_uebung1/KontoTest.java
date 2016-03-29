@@ -73,7 +73,7 @@ public class KontoTest {
 		Betrag promilleGuthaben = new Betrag (99.8, Waehrungen.CHF);
 
 		assertEquals (kontoNeu.saldo(), promilleGuthaben);
-		
+		System.out.println(kontoNeu.gebuehren());
 		}
 
 		@Test
