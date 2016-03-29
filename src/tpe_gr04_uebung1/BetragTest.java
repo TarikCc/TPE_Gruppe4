@@ -184,7 +184,7 @@ public class BetragTest {
 	@Test
 	public void testGetVorkomma() {
 
-		Betrag betrag = new Betrag(12.10, Waehrungen.EURO);
+		Betrag betrag = new Betrag(1210, Waehrungen.EURO);
 
 		assertEquals(betrag.getVorkomma(), 12);
 
@@ -193,7 +193,7 @@ public class BetragTest {
 	@Test
 	public void testGetNachkomma() {
 
-		Betrag betrag = new Betrag(12.55, Waehrungen.CHF);
+		Betrag betrag = new Betrag(1255, Waehrungen.CHF);
 		assertEquals(betrag.getNachkomma(), 55);
 	}
 }

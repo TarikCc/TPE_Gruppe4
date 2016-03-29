@@ -154,8 +154,8 @@ public class Betrag {
 	/**
 	 * @return - gibt nur die Stellen vor dem Komma zurück
 	 */
-	public int getVorkomma() {
-		return (int) this.betrag;
+	public long getVorkomma() {
+		return this.betrag/100;
 
 	}
 	
@@ -164,7 +164,7 @@ public class Betrag {
 	 * @return- gibt nur die Stellen nach dem Komma zurück
 	 */
 	public long getNachkomma() {
-		return ((this.betrag * 100) % 100) ;
+		return ((this.betrag % 100)) ;
 		
 	}
 
@@ -173,7 +173,7 @@ public class Betrag {
 	 * und Vorzeichen bei negativen Beträgen
 	 */
 	public String toString() {
-		return "" + kommaVersch() + " " + this.waehrung.getKuerzel();
+		return "" + getVorkomma() + ", " + getNachkomma() + this.waehrung.getKuerzel();
 	}
 	
 	public int kommaVersch() {
