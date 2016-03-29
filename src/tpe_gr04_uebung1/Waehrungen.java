@@ -5,7 +5,7 @@ package tpe_gr04_uebung1;
  * Wechselkursen, dient zur Wiederverwundung innerhalb des Programms DOLLAR ,
  * EURO, YEN , RUBEL, SCHWEIZER FRANKEN
  * 
- * @author mariellefeil
+ * @author Tarik, Mani, Fabienne
  *
  */
 

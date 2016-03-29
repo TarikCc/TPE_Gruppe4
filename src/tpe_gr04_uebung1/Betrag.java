@@ -1,5 +1,7 @@
 package tpe_gr04_uebung1;
 
+
+
 /**
  * Die Klasse realisiert Beträge eines Kontos. Beim Anlegen eines Objektes muss
  * sowohl Betrag als auch die Währung angegeben werden. Man kann den Betrag
@@ -89,20 +91,18 @@ public class Betrag {
 	 * @param addBetrag
 	 * @return - gibt das Ergebnis der Subtraktion 2er Beträge zurück
 	 */
-	public Betrag subtrahiere(Betrag addBetrag) {
-
-		if (addBetrag.waehrung == this.waehrung) {
-			long subtrahiereBetrag1 = addBetrag.betrag + this.betrag;
-			Betrag ergeb1 = new Betrag(subtrahiereBetrag1, this.waehrung);
-			return ergeb1;
-
-		} else {
-
-			long neuBetrag = addBetrag.waehrung.umrechnen(addBetrag.betrag,
-					this.waehrung);
-			long subtrahiereBetrag2 = neuBetrag + this.betrag;
-			Betrag ergeb2 = new Betrag(subtrahiereBetrag2, this.waehrung);
-			return ergeb2;
+	public Betrag subtrahiere(Betrag aBetrag) {
+		
+			if (aBetrag.waehrung == this.waehrung) {
+				long subtrahiereBetrag1 = this.betrag - aBetrag.betrag;
+				Betrag ergeb1 = new Betrag(subtrahiereBetrag1, this.waehrung);
+				return ergeb1;
+			} else {
+				long newBetrag2 = aBetrag.waehrung.umrechnen(aBetrag.betrag,
+						this.waehrung);
+				long subtrahiereBetrag2 = this.betrag - newBetrag2;
+				Betrag ergeb2 = new Betrag(subtrahiereBetrag2, this.waehrung);
+				return ergeb2;
 		}
 	}
 
@@ -173,8 +173,11 @@ public class Betrag {
 	 * und Vorzeichen bei negativen Beträgen
 	 */
 	public String toString() {
-		return "" + getVorzeichen() + betrag + waehrung.getKuerzel();
+		return "" + this.waehrung.getName() + " [" + this.waehrung.getKuerzel()
+				+ "] 1$ = "+ this.waehrung.getKuerzel();
 	}
+	
+	
 
 	/**
 	 * @return - eine Zahl wird in ein double-Wert komvertiert
@@ -213,6 +216,22 @@ public class Betrag {
 		this.waehrung = waehrung;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (betrag ^ (betrag >>> 32));
+		result = prime * result
+				+ ((waehrung == null) ? 0 : waehrung.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -237,4 +256,8 @@ public class Betrag {
 		}
 		return true;
 	}
+
+	
+	
+	
 }

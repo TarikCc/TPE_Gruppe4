@@ -88,7 +88,7 @@ public final class Waehrung {
 	 * @return Gibt die Informationen zur Währung als String zurück
 	 */
 	public String toString() {
-		return "" + getName() + "[" + getKuerzel() + "] 1$" + getKurs();
+		return "" + getName() + "[" + getKuerzel() + "] 1$ = " + getKurs();
 
 	}
 
