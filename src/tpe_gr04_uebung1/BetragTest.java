@@ -108,11 +108,11 @@ public class BetragTest {
 
 		assertEquals(negativeBetrag.getVorzeichen(), -1);
 
-		Betrag positiveBetrag = new Betrag(100, Waehrungen.EURO);
+		Betrag positiveBetrag = new Betrag(100, Waehrungen.DOLLAR);
 
 		assertEquals(positiveBetrag.getVorzeichen(), 1);
 
-		Betrag zeroBetrag = new Betrag(0, Waehrungen.EURO);
+		Betrag zeroBetrag = new Betrag(0, Waehrungen.YEN);
 
 		assertEquals(zeroBetrag.getVorzeichen(), 1);
 	}
@@ -153,11 +153,12 @@ public class BetragTest {
 	@Test
 	public void testToString() {
 
-		assertEquals("9900 RUB", new Betrag(9900, Waehrungen.RUBEL).toString());
-		assertEquals("129000 €", new Betrag(129000, Waehrungen.EURO).toString());
-		assertEquals("111900 $",new Betrag(111900, Waehrungen.DOLLAR).toString());
-		assertEquals("11200 CHF", new Betrag(11200, Waehrungen.CHF).toString());
-		assertEquals("329800 ¥", new Betrag(329800, Waehrungen.YEN).toString());
+		assertEquals("0,50 RUB", new Betrag(50, Waehrungen.RUBEL).toString());
+		assertEquals("10,90 €", new Betrag(1090, Waehrungen.EURO).toString());
+		assertEquals("131,34 $",new Betrag(13134, Waehrungen.DOLLAR).toString());
+		assertEquals("11,0 CHF", new Betrag(1100, Waehrungen.CHF).toString());
+		assertEquals("0,99 ¥", new Betrag(99, Waehrungen.YEN).toString());
+		assertEquals("0,0 ¥", new Betrag(0, Waehrungen.YEN).toString());
 	}
 
 	@Test
@@ -185,8 +186,23 @@ public class BetragTest {
 	public void testGetVorkomma() {
 
 		Betrag betrag = new Betrag(1210, Waehrungen.EURO);
+		Betrag betrag2 = new Betrag(3456, Waehrungen.YEN);
+		Betrag betrag3 = new Betrag(2345, Waehrungen.DOLLAR);
+		Betrag betrag4 = new Betrag(5567, Waehrungen.CHF);
+		Betrag betrag5 = new Betrag(12999, Waehrungen.RUBEL);
+		Betrag betrag6 = new Betrag(11, Waehrungen.EURO);
+		Betrag betrag7 = new Betrag(1, Waehrungen.CHF);
+		Betrag betrag8 = new Betrag(0, Waehrungen.DOLLAR);
+		
 
 		assertEquals(betrag.getVorkomma(), 12);
+		assertEquals(betrag2.getVorkomma(), 34);
+		assertEquals(betrag3.getVorkomma(), 23);
+		assertEquals(betrag4.getVorkomma(), 55);
+		assertEquals(betrag5.getVorkomma(), 129);
+		assertEquals(betrag6.getVorkomma(), 0);
+		assertEquals(betrag7.getVorkomma(), 0);
+		assertEquals(betrag8.getVorkomma(), 0);
 
 	}
 
@@ -194,6 +210,22 @@ public class BetragTest {
 	public void testGetNachkomma() {
 
 		Betrag betrag = new Betrag(1255, Waehrungen.CHF);
+		Betrag betrag2 = new Betrag(3456, Waehrungen.DOLLAR);
+		Betrag betrag3 = new Betrag(2345, Waehrungen.EURO);
+		Betrag betrag4 = new Betrag(5567, Waehrungen.YEN);
+		Betrag betrag5 = new Betrag(1299, Waehrungen.RUBEL);
+		Betrag betrag6 = new Betrag(11, Waehrungen.RUBEL);
+		Betrag betrag8 = new Betrag(1, Waehrungen.RUBEL);
+		Betrag betrag9 = new Betrag(0, Waehrungen.EURO);
+		
+		
 		assertEquals(betrag.getNachkomma(), 55);
+		assertEquals(betrag2.getNachkomma(), 56);
+		assertEquals(betrag3.getNachkomma(), 45);
+		assertEquals(betrag4.getNachkomma(), 67);
+		assertEquals(betrag5.getNachkomma(), 99);
+		assertEquals(betrag6.getNachkomma(), 11);
+		assertEquals(betrag8.getNachkomma(), 01);
+		assertEquals(betrag9.getNachkomma(), 0);
 	}
 }

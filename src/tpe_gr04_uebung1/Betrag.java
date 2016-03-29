@@ -173,7 +173,7 @@ public class Betrag {
 	 * und Vorzeichen bei negativen Beträgen
 	 */
 	public String toString() {
-		return "" + getVorkomma() + ", " + getNachkomma() + this.waehrung.getKuerzel();
+		return "" + getVorkomma() + "," + getNachkomma() + " " + this.waehrung.getKuerzel();
 	}
 	
 	public int kommaVersch() {
