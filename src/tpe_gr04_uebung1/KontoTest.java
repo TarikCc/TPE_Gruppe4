@@ -6,6 +6,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+/**
+ * Testklasse für Klasse Konto
+ * @author Tarik,Fabienne,Mani
+ *
+ */
 public class KontoTest {
 
 	@Test
@@ -64,15 +69,18 @@ public class KontoTest {
 	}
 
 	@Test
-	public void testGebuehren() {
-		Konto kontoNeu = new Konto("Kunde", new Betrag(100, Waehrungen.CHF));
-		kontoNeu.gebuehren(2);
-
-		Betrag promilleGuthaben = new Betrag(99.8, Waehrungen.CHF);
-
-		assertEquals(kontoNeu.saldo(), promilleGuthaben);
+	 public void testGebuehren() {
+	  Konto KontoNeu = new Konto ("Kunde", new Betrag (100,Waehrungen.CHF));
+	  KontoNeu.gebuehren(20);
+	  
+	  
+	  Betrag promilleGuthaben = new Betrag (98,Waehrungen.CHF);
+	  
+	  assertEquals(KontoNeu.saldo(), promilleGuthaben);
+	  
+	 }
 		
-	}
+	
 
 	@Test
 	public void testToString() {

@@ -79,7 +79,7 @@ public class Konto {
 		double promilleSatz = (double) promille / 1000;
 
 		Betrag prozentBetrag = guthaben.multi(promilleSatz);
-		Betrag abzug = new Betrag((-1) * prozentBetrag.getBetrag(),
+		Betrag abzug = new Betrag(((-1) * prozentBetrag.getBetrag()),
 				guthaben.getWaehrung());
 		buche((abzug));
 	}
