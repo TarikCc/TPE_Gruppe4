@@ -14,18 +14,31 @@ public class CrypterCaesar implements Crypter {
 
 	@Override
 	public char verschluesseln(char klarTextZeichen) throws CrypterException {
+		if (!Character.isLetter(klarTextZeichen)){
+			throw new CrypterException ("Klartext enthält ungültiges Zeichen");
+		} 
 		if (Character.isLowerCase(klarTextZeichen)) {
-			klarTextZeichen.toUpperCase();
+			throw new CrypterException ("Klartext enthält Großbuchstaben");
 		}
-			throw new CrypterException ("Nachricht enthält ungültiges Zeichen");
+	    if (klarTextZeichen >= "A" && <= "Z"){
+	    	return (char) ((klarTextZeichen - "A" + Key.key) %26 + "A");
+	    }
+	    	
+	    
+		
 			
-		String[] klartextZeichenArray = klarTextZeichen.toCharArray;
+		
 		
 		return 0;
 	}
 
 	@Override
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException {
+		if (!Character.isLetter(cypherTextZeichen)){
+			throw new CrypterException ("Geheimtext enthält ungültiges Zeichen");
+		} if (Character.isLowerCase(cypherTextZeichen)) {
+			throw new CrypterException ("Geheimtext enthält Großbuchstaben");
+		}
 		
 		return 0;
 	}
