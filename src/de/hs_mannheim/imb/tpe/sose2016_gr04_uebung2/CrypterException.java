@@ -1,10 +1,15 @@
 package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung2;
 
-public class CrypterException extends Throwable{
+@SuppressWarnings("serial")
+public class CrypterException extends Exception {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	public CrypterException() {
+		super();
+
+	}
+
+	public CrypterException(String message) {
+		super(message);
+	}
 
 }

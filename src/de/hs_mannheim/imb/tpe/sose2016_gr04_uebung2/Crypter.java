@@ -32,17 +32,17 @@ public interface Crypter {
 	 *             Wird geworfen, wenn Probleme mit der Verschlüsselung
 	 *             auftreten.
 	 * */
-	public char verschluesseln(char klartextZeichen) throws CrypterException;
+	public char verschluesseln(char klarTextZeichen) throws CrypterException;
 
 	/**
 	 * Entschlüsselt das gegebenen Zeichen.
 	 * 
 	 * @param cypherTextZeichen
-	 *            Zeichen, das entschl ̈usselt werden soll.
+	 *            Zeichen, das entschlüsselt werden soll.
 	 * @return entschlüsseltes Zeichen.
 	 * @throws CrypterException
-	 *             Wird geworfen, wenn Probleme mit der * Verschlüsselung
-	 *             auftreten.
+	 *             Wird geworfen, wenn Probleme mit der 
+	 *             Verschlüsselung auftreten.
 	 */
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException;
 }

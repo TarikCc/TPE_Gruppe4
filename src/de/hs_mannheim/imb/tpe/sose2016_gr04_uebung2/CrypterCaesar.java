@@ -1,7 +1,11 @@
 package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung2;
 
 public class CrypterCaesar implements Crypter {
-
+	
+	CrypterCaesar() {
+		super();
+	}
+	
 	@Override
 	public void reset() {
 		
@@ -9,7 +13,13 @@ public class CrypterCaesar implements Crypter {
 	}
 
 	@Override
-	public char [] verschluesseln(char klartextZeichen) throws CrypterException {
+	public char verschluesseln(char klarTextZeichen) throws CrypterException {
+		if (Character.isLowerCase(klarTextZeichen)) {
+			klarTextZeichen.toUpperCase();
+		}
+			throw new CrypterException ("Nachricht enthält ungültiges Zeichen");
+			
+		String[] klartextZeichenArray = klarTextZeichen.toCharArray;
 		
 		return 0;
 	}
