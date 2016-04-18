@@ -2,44 +2,35 @@ package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung2;
 
 public class Key {
 
-	@SuppressWarnings("unused")
 	private String key;
 
-	public Key(String key, VerschluesselungsTyp typ) {
+	public String schluessel(String key, VerschluesselungsTyp typ)
+			throws CrypterException {
 		if (typ == VerschluesselungsTyp.CAESAR) {
 			if (key.length() == 1) {
 				if (Character.isLetter(key.charAt(0))) {
-					this.key = key;
-
+					return key;
+				} else {
+					return key.substring(0, 0);
 				}
-					
-				
-
 			}
-
-		} else if ( typ == VerschluesselungsTyp.SUBSTITUTION) {
+		}
+		if (typ == VerschluesselungsTyp.SUBSTITUTION) {
 			if (key.length() == 26) {
-				if (Character.isLetter(key.charAt(25))) {
-					this.key = key;
+				return key;
+			} else {
+				throw new CrypterException("Key ist zu kurz");
+			}
+		}
+		if (typ == VerschluesselungsTyp.XOR) {
+			if (key.length() == 1) {
+				if (Character.isLetter(key.charAt(0))) {
+					return key;
+				} else {
+					return key.substring(0, 0);
 				}
 			}
-			
-		} else if (typ == VerschluesselungsTyp.XOR) {
-			if (Character.isLetter(key.charAt(31))){
-				this.key = key;
-			}
 		}
-	}
-	static boolean checkUppercase(String text) {
-		for (int i = 0; i < text.length(); i++) {
-			// greifen in dem Text an die stelle i zu
-			if (text.charAt(i) >= MINIMUM && text.charAt(i) <= MAXIMUM) {
-
-			} else {
-				return false;
-			}
-		}
-		return true;
+		return null;
 	}
 }
-

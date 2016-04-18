@@ -1,45 +1,49 @@
 package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung2;
 
 public class CrypterCaesar implements Crypter {
-	
-	CrypterCaesar() {
-		super();
+
+	private char grundtext;
+	private String schluessel;
+
+	CrypterCaesar(String k) {
+		schluessel = k;
 	}
-	
+
 	@Override
 	public void reset() {
-		
-		
+		try {
+			verschluesseln(grundtext);
+		} catch (CrypterException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public char verschluesseln(char klarTextZeichen) throws CrypterException {
-		if (!Character.isLetter(klarTextZeichen)){
-			throw new CrypterException ("Klartext enthält ungültiges Zeichen");
-		} 
-		if (Character.isLowerCase(klarTextZeichen)) {
-			throw new CrypterException ("Klartext enthält Großbuchstaben");
+		grundtext = klarTextZeichen;
+		if (!Character.isLetter(klarTextZeichen)) {
+			throw new CrypterException("Klartext enthält ungültiges Zeichen");
 		}
-	    if (klarTextZeichen >= "A" && <= "Z"){
-	    	return (char) ((klarTextZeichen - "A" + Key.key) %26 + "A");
-	    }
-	    	
-	    
-		
-			
-		
-		
+		if (Character.isLowerCase(klarTextZeichen)) {
+			throw new CrypterException("Klartext enthält Großbuchstaben");
+		}
+		if (klarTextZeichen >= 65 && klarTextZeichen <= 90) {
+			return (char) ((klarTextZeichen - 65 + schluessel.charAt(0)) % 26 + 65);
+		}
 		return 0;
 	}
 
 	@Override
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException {
-		if (!Character.isLetter(cypherTextZeichen)){
-			throw new CrypterException ("Geheimtext enthält ungültiges Zeichen");
-		} if (Character.isLowerCase(cypherTextZeichen)) {
-			throw new CrypterException ("Geheimtext enthält Großbuchstaben");
+		if (!Character.isLetter(cypherTextZeichen)) {
+			throw new CrypterException("Geheimtext enthält ungültiges Zeichen");
 		}
-		
+		if (Character.isLowerCase(cypherTextZeichen)) {
+			throw new CrypterException("Geheimtext enthält Großbuchstaben");
+		}
+		if (cypherTextZeichen >= 65 && cypherTextZeichen <= 90) {
+			return (char) ((cypherTextZeichen - 65 - schluessel.charAt(0)) % 26 + 65);
+		}
 		return 0;
 	}
 
