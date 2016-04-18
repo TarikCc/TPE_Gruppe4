@@ -18,7 +18,57 @@ public class CrypterCaesarTest {
 	
     @Test 
 	public void testCaesar() throws CrypterException {
-		Crypter caesar = CrypterFactoryCrypterCaesar(s.schluessel(ki, typ))
+    	Crypter caesar = Crypter.
 		assertEquals("C", caesar.entschluesseln("U");
 	}
+    
+    public void testCaesarException()
+            throws CrypterException  {
+
+        Crypter caesar = CrypterFactory.crypterTyp(, ki);
+
+        try {
+            caesar.encrypt("C", "caesAr");
+            fail();
+        } catch (CrypterException imex) {
+            assertTrue(true);
+        }
+
+        try {
+            caesar.verschluesseln();
+            fail();
+        } catch (CrypterException ikex) {
+            assertTrue(true);
+        }
+
+        try {
+            caesar.verschluesseln(klarTextZeichen);
+            fail();
+        } catch (CrypterExceptionn ikex) {
+            assertTrue(true);
+        }
+
+        try {
+            caesar.encrypt("1", "CAESAR");
+            fail();
+        } catch (IllegalKeyException ikex) {
+            assertTrue(true);
+        }
+
+        try {
+            caesar.decrypt("1", "FDHVDU");
+            fail();
+        } catch (CrypterException ikex) {
+            assertTrue(true);
+        }
+
+        try {
+            caesar.decrypt("CC", "FDHVDU");
+            fail();
+        } catch (CrypterException ikex) {
+            assertTrue(true);
+        }
+
+    }
+
 }
