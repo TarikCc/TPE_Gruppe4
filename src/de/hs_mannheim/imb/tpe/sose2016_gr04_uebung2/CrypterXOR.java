@@ -27,24 +27,34 @@ public class CrypterXOR implements Crypter {
 
 	@Override
 	public char verschluesseln(char klartextZeichen) throws CrypterException {
-		int stelle = 0;
+		int verschluesseltesZeichen = 0;
 		for (int i = 0; i <= ABC.length; i++) {
 			if (klartextZeichen == ABC[i]) {
 				for (int n = 0; n <= ABC.length; i++) {
 					if (schluessel.charAt(0) == ABC[n]) {
-						stelle = i ^ n;
+					verschluesseltesZeichen = i ^ n;
 					}
 				}
 			}
 		}
 
-		return ABC[stelle];
+		return ABC[verschluesseltesZeichen];
 	}
 
 	@Override
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException {
+		int entschluesseltesZeichen  = 0;
+		for (int i = 0; i <= ABC.length; i++) {
+			if (cypherTextZeichen == ABC[i]) {
+				for (int n = 0; n <= ABC.length; i++) {
+					if (schluessel.charAt(0) == ABC[n]) {
+						entschluesseltesZeichen = i ^ n;
+					}
+				}
+			}
+		}
 
-		return 0;
+		return ABC[entschluesseltesZeichen];
 	}
 
 }
