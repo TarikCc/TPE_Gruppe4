@@ -28,7 +28,9 @@ public class CrypterCaesar implements Crypter {
 			throw new CrypterException("Klartext enthält Großbuchstaben");
 		}
 		if (klarTextZeichen >= 65 && klarTextZeichen <= 90) {
-			return (char) ((klarTextZeichen - 65 + schluessel.charAt(0)) % 26 + 65);
+			int diff = schluessel.charAt(0)-65;
+			return (char) (((klarTextZeichen - 65 + diff + 1)%26) + 65);
+			
 		}
 		return 0;
 	}
@@ -42,9 +44,32 @@ public class CrypterCaesar implements Crypter {
 			throw new CrypterException("Geheimtext enthält Großbuchstaben");
 		}
 		if (cypherTextZeichen >= 65 && cypherTextZeichen <= 90) {
-			return (char) ((cypherTextZeichen - 65 - schluessel.charAt(0)) % 26 + 65);
+			int diff = schluessel.charAt(0)-65;
+			return (char) (((cypherTextZeichen - 65 + diff + 1)%26) + 65);
 		}
 		return 0;
 	}
-
+	/** systemout Test f�r Caesar Verschl�sselung
+	 	
+	  	public static void main (String[] args){
+		CrypterCaesar caesar = new CrypterCaesar("c");
+	      String text = "caesar";
+	      String kodiert = "";
+	      System.out.println("output");
+	      for(int i = 0; i < text.length(); i++)
+	      {
+	        char letter = text.charAt(i);
+	        try
+	        {
+	          kodiert += caesar.verschluesseln(letter);
+	        }
+	        catch(CrypterException ce)
+	        {
+	          ce.printStackTrace();
+	          return;
+	        }
+	      }
+	      System.out.println(kodiert);
+	}
+	*/
 }
