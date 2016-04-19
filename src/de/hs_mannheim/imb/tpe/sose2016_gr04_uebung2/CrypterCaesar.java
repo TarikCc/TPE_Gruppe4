@@ -49,27 +49,5 @@ public class CrypterCaesar implements Crypter {
 		}
 		return 0;
 	}
-	/** systemout Test für Caesar Verschlüsselung
-	 	
-	  	public static void main (String[] args){
-		CrypterCaesar caesar = new CrypterCaesar("c");
-	      String text = "caesar";
-	      String kodiert = "";
-	      System.out.println("output");
-	      for(int i = 0; i < text.length(); i++)
-	      {
-	        char letter = text.charAt(i);
-	        try
-	        {
-	          kodiert += caesar.verschluesseln(letter);
-	        }
-	        catch(CrypterException ce)
-	        {
-	          ce.printStackTrace();
-	          return;
-	        }
-	      }
-	      System.out.println(kodiert);
-	}
-	*/
+
 }
