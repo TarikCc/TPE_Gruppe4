@@ -1,6 +1,6 @@
 package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung2;
 
-public class CrypterCaesar implements Crypter {
+class CrypterCaesar implements Crypter {
 
 	private char grundtext;
 	private String schluessel;
@@ -8,7 +8,7 @@ public class CrypterCaesar implements Crypter {
 	CrypterCaesar(String k) {
 		schluessel = k;
 	}
-
+	
 	@Override
 	public void reset() {
 		try {
@@ -18,6 +18,7 @@ public class CrypterCaesar implements Crypter {
 		}
 	}
 
+	
 	@Override
 	public char verschluesseln(char klarTextZeichen) throws CrypterException {
 		grundtext = klarTextZeichen;
@@ -25,23 +26,22 @@ public class CrypterCaesar implements Crypter {
 			throw new CrypterException("Klartext enthält ungültiges Zeichen");
 		}
 		if (Character.isLowerCase(klarTextZeichen)) {
-			throw new CrypterException("Klartext enthält Großbuchstaben");
+			throw new CrypterException("Klartext enthält Kleinbuchstaben");
 		}
 		if (klarTextZeichen >= 65 && klarTextZeichen <= 90) {
 			int diff = schluessel.charAt(0)-65;
 			return (char) (((klarTextZeichen - 65 + diff + 1)%26) + 65);
-			
 		}
 		return 0;
 	}
-
+	
 	@Override
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException {
 		if (!Character.isLetter(cypherTextZeichen)) {
 			throw new CrypterException("Geheimtext enthält ungültiges Zeichen");
 		}
 		if (Character.isLowerCase(cypherTextZeichen)) {
-			throw new CrypterException("Geheimtext enthält Großbuchstaben");
+			throw new CrypterException("Geheimtext enthält Kleinbuchstaben");
 		}
 		if (cypherTextZeichen >= 65 && cypherTextZeichen <= 90) {
 			int diff = schluessel.charAt(0)-65;

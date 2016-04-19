@@ -1,6 +1,6 @@
 package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung2;
 
-public class CrypterXOR implements Crypter {
+class CrypterXOR implements Crypter {
 
 	private char grundtext;
 	private String schluessel;

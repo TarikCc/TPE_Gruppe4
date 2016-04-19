@@ -1,6 +1,6 @@
 package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung2;
 
-public class CrypterSubstitution implements Crypter {
+class CrypterSubstitution implements Crypter {
 
 	String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -39,24 +39,4 @@ public class CrypterSubstitution implements Crypter {
 		}
 		return 0;
 	}
-	public static void main (String[] args){
-		CrypterSubstitution caesar = new CrypterSubstitution("3");
-		String text = "CAESAR";
-		String kodiert = "";
-		System.out.println("");
-		for(int i = 0; i < text.length(); i++)
-		{
-			char letter = text.charAt(i);
-			try
-			{
-				kodiert += caesar.verschluesseln(letter);
-			}
-			catch(CrypterException ce)
-			{
-				ce.printStackTrace();
-				return;
-			}
-		}
-     System.out.println(kodiert);
-   }
 }
