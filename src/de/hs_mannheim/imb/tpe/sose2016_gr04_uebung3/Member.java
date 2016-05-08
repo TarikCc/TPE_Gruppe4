@@ -1,17 +1,17 @@
 package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung3;
 
 /**
- * stellt Vereinsmitglied und dessen persönliche Daten dar, mit folgenden
+ * stellt Vereinsmitglied und dessen persÃ¶nliche Daten dar, mit folgenden
  * Eigenschaften Mitglieder-ID Nachname Vorname Anzahl der Mitgliedsjahre im
  * Verein (Mitgliedschaft)
  *
  */
 public class Member {
 
-	final int MitgliederID;
-	private String Nachname;
-	private String Vorname;
-	private int Mitgliedschaft;
+	private final int MITGLIEDERID;
+	private String nachname;
+	private String vorname;
+	private int mitgliedschaft;
 
 	/**
 	 * Konstruktor der eom Vereinsmotglied darstellt
@@ -21,11 +21,11 @@ public class Member {
 	 * @param Vorname
 	 * @param Mitgliedschaft
 	 */
-	public Member(int MitgliederID, String Nachname, String Vorname, int Mitgliedschaft) {
-		this.MitgliederID = MitgliederID;
-		this.Nachname = Nachname;
-		this.Vorname = Vorname;
-		this.Mitgliedschaft = Mitgliedschaft;
+	public Member(int mitgliederId, String nachname, String vorname, int mitgliedschaft) {
+		this.MITGLIEDERID = mitgliederId;
+		this.nachname = nachname;
+		this.vorname = vorname;
+		this.mitgliedschaft = mitgliedschaft;
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class Member {
 	 * @return Nachname
 	 */
 	public String getNachname() {
-		return Nachname;
+		return this.nachname;
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class Member {
 	 * @param nachname
 	 */
 	public void setNachname(String nachname) {
-		Nachname = nachname;
+		this.nachname = nachname;
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class Member {
 	 * @return Vorname
 	 */
 	public String getVorname() {
-		return Vorname;
+		return this.vorname;
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class Member {
 	 * @param vorname
 	 */
 	public void setVorname(String vorname) {
-		Vorname = vorname;
+		this.vorname = vorname;
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class Member {
 	 * @return Mitgliedschaft
 	 */
 	public int getMitgliedschaft() {
-		return Mitgliedschaft;
+		return this.mitgliedschaft;
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class Member {
 	 * @param mitgliedschaft
 	 */
 	public void setMitgliedschaft(int mitgliedschaft) {
-		Mitgliedschaft = mitgliedschaft;
+		this.mitgliedschaft = mitgliedschaft;
 	}
 
 	/**
@@ -81,35 +81,27 @@ public class Member {
 	 * @return MitgliederID
 	 */
 	public int getMitgliederID() {
-		return MitgliederID;
+		return this.MITGLIEDERID;
 	}
 
 	@Override
 	public String toString() {
-		return "Member [MitgliederID=" + MitgliederID + ", Nachname=" + Nachname + ", Vorname=" + Vorname
-				+ ", Mitgliedschaft=" + Mitgliedschaft + "]";
+		return "Member [MitgliederID=" + this.MITGLIEDERID + ", Nachname=" + this.nachname + ", Vorname=" + this.vorname
+				+ ", Mitgliedschaft=" + this.mitgliedschaft + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + MitgliederID;
-		return result;
+		return this.MITGLIEDERID;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(int ohtherMitgliederId) {
+		if (ohtherMitgliederId == MITGLIEDERID){
 			return true;
-		if (obj == null)
+		}else {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Member other = (Member) obj;
-		if (MitgliederID != other.MitgliederID)
-			return false;
-		return true;
+		}
+	
 	}
 
 }
