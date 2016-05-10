@@ -7,157 +7,154 @@ import java.util.Set;
 
 public class MembershipList extends HashMap<String, Member> implements Map<String, Member> {
 
-    /**
-     * Anzahl der Elemente in der Map
-     * 
-     * @return gibt Anzahl der Elemente zur�ck
-     */
-    @Override
-    public int size() {
-        return super.size();
-    }
+	/**
+	 * Anzahl der Elemente in der Map
+	 * 
+	 * @return gibt Anzahl der Elemente zurück
+	 */
+	@Override
+	public int size() {
+		return super.size();
+	}
 
-    /**
-     * Testet ob Elemente vorhanden sind in der Map
-     * 
-     * @return true or false
-     */
-    public boolean isEmpty() {
-        if (size() == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+	/**
+	 * Testet ob Elemente vorhanden sind in der Map
+	 * 
+	 * @return true or false
+	 */
+	public boolean isEmpty() {
+		if (size() == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-    /**
-     * Liest den Wert zum Schl�ssel Key
-     * 
-     * @param key
-     * @return key
-     */
-    public String get(String key) {
-        return key;
-    }
+	/**
+	 * Liest den Wert zum Schlüssel Key
+	 * 
+	 * @param key
+	 * @return key
+	 */
+	public String get(String key) {
+		return key;
+	}
 
-    /**
-     * Testet ob Schl�ssel key vorhanden ist
-     * 
-     * @param key
-     * @return true or false
-     */
-    public boolean containsKey(String key) {
-        return super.containsKey(key);
-    }
+	/**
+	 * Testet ob Schlüssel key vorhanden ist
+	 * 
+	 * @param key
+	 * @return true or false
+	 */
+	public boolean containsKey(String key) {
+		return super.containsKey(key);
+	}
 
-    /**
-     * 
-     * @param key
-     * @param value
-     * @return
-     */
-    @Override
-    public Member put(String key, Member value) {
-        return super.put(key, value);
-    }
+	/**
+	 * Setzt Schlüssel key und Wert value
+	 * 
+	 * @param key
+	 * @param value
+	 * @return key,value
+	 */
+	@Override
+	public Member put(String key, Member value) {
+		return super.put(key, value);
+	}
 
-    /**
-     * 
-     * @param m
-     * @return
-     */
-    public Member put(Member m) {
-        return this.put(m.getMitgliederID(), m);
-    }
+	/**
+	 * Setzt member
+	 * 
+	 * @param key
+	 * @param m
+	 * @return m
+	 */
+	public Member put(Member m) {
+		return this.put(m.getMitgliederID(), m);
+	}
 
-    /**
-     * 
-     * @param m
-     */
-    @Override
-    public void putAll(Map<? extends String, ? extends Member> m) {
-        super.putAll(m);
-    }
+	/**
+	 * Fügt eine ganze Map hinzu
+	 * 
+	 * @param m
+	 */
+	@Override
+	public void putAll(Map<? extends String, ? extends Member> m) {
+		super.putAll(m);
+	}
 
-    /**
-     * 
-     * @param key
-     * @return
-     */
-    @Override
-    public Member remove(Object key) {
-        return super.remove(key);
-    }
+	/**
+	 * Entfernt den Wert zu key (und key selbst)
+	 * 
+	 * @param key
+	 * @return
+	 */
+	@Override
+	public Member remove(Object key) {
+		return super.remove(key);
+	}
 
-    /**
-     * 
-     */
-    @Override
-    public void clear() {
-        super.clear();
-    }
+	/**
+	 * Löscht die Map
+	 */
+	@Override
+	public void clear() {
+		super.clear();
+	}
 
-    /**
-     * 
-     * @param value
-     * @return
-     */
-    public boolean containsValue(Member value) {
-        return super.containsValue(value);
+	/**
+	 * Testet ob Wert value vorhanden ist
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public boolean containsValue(Member value) {
+		return super.containsValue(value);
 
-    }
+	}
 
-    /**
-     * 
-     * @return
-     */
-    @Override
-    public Set<String> keySet() {
-        return super.keySet();
-    }
+	/**
+	 * Alle Schlüssel als Set
+	 * 
+	 * @return keySet
+	 */
+	@Override
+	public Set<String> keySet() {
+		return super.keySet();
+	}
 
-    /**
-     * 
-     * @return
-     */
-    @Override
-    public Collection<Member> values() {
-        return super.values();
-    }
+	/**
+	 * Alle Werte als Collection
+	 * 
+	 * @return
+	 */
+	@Override
+	public Collection<Member> values() {
+		return super.values();
+	}
 
-    /**
-     * 
-     * @return
-     */
-    @Override
-    public Set<Entry<String, Member>> entrySet() {
-        return super.entrySet();
-    }
+	/**
+	 * Alle Einträge als spezielles Set
+	 * 
+	 * @return
+	 */
+	@Override
+	public Set<Entry<String, Member>> entrySet() {
+		return super.entrySet();
+	}
 
-    /**
-     * 
-     * @param o
-     * @return
-     */
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
+	@Override
+	public boolean equals(Object o) {
+		return super.equals(o);
+	}
 
-    /**
-     * 
-     * @param key
-     * @return
-     */
-    public int hashCode(String key) {
-        return Integer.parseInt(key);
-    }
+	public int hashCode(String key) {
+		return Integer.parseInt(key);
+	}
 
-    @Override
-    public String toString() {
-        return "L�nge der MemberShipList:" + size();
-    }
+	@Override
+	public String toString() {
+		return "Länge der MemberShipList:" + size();
+	}
 
 }
-
-
