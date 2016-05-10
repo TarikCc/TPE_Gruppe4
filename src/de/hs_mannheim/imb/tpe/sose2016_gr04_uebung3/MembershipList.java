@@ -6,170 +6,169 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-public class MembershipList extends HashMap<Member, Member> implements Map<Member, Member> {
+public class MembershipList extends HashMap<String, Member> implements Map<String, Member> {
 
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#size()
+	/**
+	 * Anzahl der Elemente in der Map
+	 * @return gibt Anzahl der Elemente zurück
 	 */
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
 		return super.size();
 	}
 
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#isEmpty()
+	/**
+	 * Testet ob Elemente vorhanden sind in der Map
+	 * 
+	 * @return true or false
 	 */
-	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return super.isEmpty();
+		if (size() == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Liest den Wert zum Schlüssel Key
+	 * @param key
+	 * @return key
+	 */
+	public String get(String key) {
+		return key;
 	}
 
 
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#get(java.lang.Object)
+	/**
+	 * Testet ob Schlüssel key vorhanden ist
+	 * @param key
+	 * @return true or false
 	 */
-	@Override
-	public Member get(Object key) {
-		// TODO Auto-generated method stub
-		return super.get(key);
+	public boolean containsKey(String key) {
+		if( key != null) {
+		return true;
+		}else{
+			return false;
+		}
 	}
 
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#containsKey(java.lang.Object)
+	
+	/**
+	 * 
+	 * @param key
+	 * @param value
+	 * @return
 	 */
 	@Override
-	public boolean containsKey(Object key) {
-		// TODO Auto-generated method stub
-		return super.containsKey(key);
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#put(java.lang.Object, java.lang.Object)
-	 */
-	@Override
-	public Member put(Member key, Member value) {
-		// TODO Auto-generated method stub
+	public Member put(String key, Member value) {
 		return super.put(key, value);
 	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#putAll(java.util.Map)
+	
+	/**
+	 * 
+	 * @param m
+	 * @return
 	 */
-	@Override
-	public void putAll(Map<? extends Member, ? extends Member> m) {
-		// TODO Auto-generated method stub
+	public Member put(Member m) {
+		return this.put(m.getMitgliederID(), m);
+	}
+
+	/**
+	 * 
+	 * @param m
+	 */
+    @Override
+	public void putAll(Map<? extends String, ? extends Member> m) {
 		super.putAll(m);
 	}
 
 
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#remove(java.lang.Object)
-	 */
+    /**
+     * 
+     * @param key
+     * @return
+     */
 	@Override
-	public Member remove(Object key) {
-		// TODO Auto-generated method stub
+	public Member remove(Object key){
 		return super.remove(key);
 	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#clear()
-	 */
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		super.clear();
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#containsValue(java.lang.Object)
-	 */
-	@Override
-	public boolean containsValue(Object value) {
-		// TODO Auto-generated method stub
-		return super.containsValue(value);
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#clone()
-	 */
-	@Override
-	public Object clone() {
-		// TODO Auto-generated method stub
-		return super.clone();
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#keySet()
-	 */
-	@Override
-	public Set<Member> keySet() {
-		// TODO Auto-generated method stub
-		return super.keySet();
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#values()
-	 */
-	@Override
-	public Collection<Member> values() {
-		// TODO Auto-generated method stub
-		return super.values();
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.HashMap#entrySet()
-	 */
-	@Override
-	public Set<Entry<Member, Member>> entrySet() {
-		// TODO Auto-generated method stub
-		return super.entrySet();
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.AbstractMap#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object o) {
-		// TODO Auto-generated method stub
-		return super.equals(o);
-	}
-
-	public int hashCode(Member key) {
-		return key.getMitgliederID();
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.util.AbstractMap#toString()
-	 */
-	@Override
-	public String toString() {
-		return "
-	
 
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	private int hash(Member key){
-		return key.getMitgliederID();
-		
+	@Override
+	public void clear() {
+		super.clear();
 	}
 
+
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public boolean containsValue(Member value) {
+		if (value != null){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	@Override
+	public Set<String> keySet() {
+		return super.keySet();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	@Override
+	public Collection<Member> values() {
+		return super.values();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	@Override
+	public Set<Entry<String, Member>> entrySet() {
+		return super.entrySet();
+	}
+
+	/**
+	 * 
+	 * @param o
+	 * @return
+	 */
+	@Override
+	public boolean equals(Object o) {
+		return super.equals(o);
+	}
+
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public int hashCode(String key) {
+		return Integer.parseInt(key);
+	}
+	
+	@Override
+	public String toString() {
+		return "Länge der MemberShipList:" + size() ;
+	}
+
+	public void iter(){
+		
+	}
 }

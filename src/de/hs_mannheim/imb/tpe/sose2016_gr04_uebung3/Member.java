@@ -3,15 +3,17 @@ package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung3;
 /**
  * stellt Vereinsmitglied und dessen persönliche Daten dar, mit folgenden
  * Eigenschaften Mitglieder-ID Nachname Vorname Anzahl der Mitgliedsjahre im
- * Verein (Mitgliedschaft)
+ * Verein 
  *
  */
 public class Member {
 
-	private final int MITGLIEDERID;
+	private final String MITGLIEDERID;
 	private String nachname;
 	private String vorname;
-	private int mitgliedschaft;
+	private int mitgliedsJahre;
+
+	
 
 	/**
 	 * Konstruktor der eom Vereinsmotglied darstellt
@@ -19,13 +21,13 @@ public class Member {
 	 * @param MitgliederID
 	 * @param Nachname
 	 * @param Vorname
-	 * @param Mitgliedschaft
+	 * @param MitgliedsJahre
 	 */
-	public Member(int mitgliederId, String nachname, String vorname, int mitgliedschaft) {
+	public Member(String mitgliederId, String nachname, String vorname, int mitgliedsJahre) {
 		this.MITGLIEDERID = mitgliederId;
 		this.nachname = nachname;
 		this.vorname = vorname;
-		this.mitgliedschaft = mitgliedschaft;
+		this.mitgliedsJahre = mitgliedsJahre;
 	}
 
 	/**
@@ -37,7 +39,7 @@ public class Member {
 	}
 
 	/**
-	 * 
+	 * verändert nachname
 	 * @param nachname
 	 */
 	public void setNachname(String nachname) {
@@ -53,7 +55,7 @@ public class Member {
 	}
 
 	/**
-	 * 
+	 * verändert vorname
 	 * @param vorname
 	 */
 	public void setVorname(String vorname) {
@@ -62,41 +64,54 @@ public class Member {
 
 	/**
 	 * 
-	 * @return Mitgliedschaft
+	 * @return MitgliedsJahre
 	 */
-	public int getMitgliedschaft() {
-		return this.mitgliedschaft;
+	public int getMitgliedsJahre() {
+		return this.mitgliedsJahre;
 	}
 
 	/**
-	 * 
-	 * @param mitgliedschaft
+	 * verändert Mitgliedsjahre
+	 * @param mitgliedsJahre
 	 */
-	public void setMitgliedschaft(int mitgliedschaft) {
-		this.mitgliedschaft = mitgliedschaft;
+	public void setMitgliedsJahre(int mitgliedsJahre) {
+		this.mitgliedsJahre = mitgliedsJahre;
 	}
 
 	/**
 	 * 
 	 * @return MitgliederID
 	 */
-	public int getMitgliederID() {
+	public String getMitgliederID() {
 		return this.MITGLIEDERID;
 	}
 
+	/**
+	 * @return gibt ein Member mit all seinen Eigenschaften aus 
+	 */
 	@Override
 	public String toString() {
 		return "Member [MitgliederID=" + this.MITGLIEDERID + ", Nachname=" + this.nachname + ", Vorname=" + this.vorname
-				+ ", Mitgliedschaft=" + this.mitgliedschaft + "]";
+				+ ", Mitgliedsjahre=" + this.mitgliedsJahre + "]";
 	}
 
-	@Override
+	/**
+	 * gibt einen int-Wert zurück zu eindeutigen 
+	 * Identifizierung eines Objektes
+	 * @return hashCode
+	 */
 	public int hashCode() {
-		return this.MITGLIEDERID;
+		return Integer.parseInt(this.MITGLIEDERID);
 	}
 
-	public boolean equals(int ohtherMitgliederId) {
-		if (ohtherMitgliederId == MITGLIEDERID){
+	
+	/**
+	 * Überprüft ob die Mitglieder identisch sind
+	 * @param ohtherMitgliederId
+	 * @return true or false
+	 */
+	public boolean equals(String ohtherMitgliederId) {
+		if (ohtherMitgliederId.equals(MITGLIEDERID)){
 			return true;
 		}else {
 			return false;
