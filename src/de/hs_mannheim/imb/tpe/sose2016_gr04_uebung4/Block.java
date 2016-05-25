@@ -3,27 +3,36 @@ package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung4;
 public class Block {
 	//true = grün false = rot
 	private boolean signal = true;
-	private final int startKm;
+	private final int anfangKm;
 	private final int endKm;
 	
-	public Block(int startKm, int endKm){
-		this.startKm = startKm;
+	public Block(int anfangKm, int endKm){
+		this.anfangKm = anfangKm;
 		this.endKm = endKm;
 	}
 	
-	public void setEinfahren(){
+	public synchronized void setEinfahren(){
 		signal = false;
 	}
 	
-	public void setVerlassen(){
+	public synchronized void setAusfahren(){
 		signal = true;
+	}
+	
+	public int getEndKm(){
+		return endKm;
+	}
+	
+	public int getAnfangKm(){
+		return anfangKm;
 	}
 	
 	public boolean getSignal(){
 		return signal;
 	}
 	
-	public int getEnde(){
-		return endKm;
+	public int getLaenge(){
+		return endKm - anfangKm;
 	}
+	
 }
