@@ -5,10 +5,12 @@ public class SimulationException extends Exception {
 
 	public SimulationException() {
 		super();
+		System.out.println("UNFALL!!!!");
 
 	}
 
 	public SimulationException(String message) {
 		super(message);
+		System.out.println(" UNFALL!!!!");
 	}
 }
