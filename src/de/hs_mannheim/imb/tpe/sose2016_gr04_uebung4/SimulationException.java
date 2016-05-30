@@ -11,6 +11,6 @@ public class SimulationException extends Exception {
 
 	public SimulationException(String message) {
 		super(message);
-		System.out.println(" UNFALL!!!!");
+		System.out.println("UNFALL!!!!");
 	}
 }
