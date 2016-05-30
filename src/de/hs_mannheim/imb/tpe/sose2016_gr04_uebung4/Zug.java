@@ -68,7 +68,10 @@ public class Zug implements Runnable {
 	/**
 	 * Unfall-Methode
 	 */
-	private void unfall() {
+	private void unfall(int otherPosition) throws SimulationException {
+		if (this.position == otherPosition){
+			throw new SimulationException();
+		}
 
 	}
 
