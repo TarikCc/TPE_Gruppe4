@@ -3,9 +3,14 @@ package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung4;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasse Simulation, um das Fahren der Züge auf der Strecke zu simulieren
+ *
+ */
 public class Simulation {
 	private static List<Zug> z = new ArrayList<Zug>();
-	public Simulation(){
+
+	public Simulation() {
 		Strecke a = new Strecke(70);
 		a.addBlock(10);
 		a.addBlock(5);
@@ -20,48 +25,48 @@ public class Simulation {
 		z.add(new Zug('C', 20, 5, a));
 		z.add(new Zug('D', 30, 10, a));
 		z.add(new Zug('E', 45, 6, a));
-		
+
 		System.out.println(printStrecke(a.getLaenge(), a.getBlockList()));
-		
+
 		Thread eins = new Thread(z.get(0));
 		Thread zwei = new Thread(z.get(1));
 		Thread drei = new Thread(z.get(2));
 		Thread vier = new Thread(z.get(3));
 		Thread fuenf = new Thread(z.get(4));
-		
+
 		eins.start();
 		zwei.start();
 		drei.start();
 		vier.start();
 		fuenf.start();
 	}
+
 	/**
-	 * Gibt die strecke mit den aktuellen signalen und zï¿½gen zurï¿½ck
+	 * Gibt die Strecke mit den aktuellen Signalen und Zügen zurück
+	 * 
 	 * @param laenge
 	 * @param b
-	 * @return
+	 * @return str
 	 */
-	public static String printStrecke(int laenge, List<Block> b){
+	public static String printStrecke(int laenge, List<Block> b) {
 		int n = 1;
 		String str = "";
-		for(Block bl : b){
-			if(bl.getSignal()){
+		for (Block bl : b) {
+			if (bl.getSignal()) {
 				str += "_";
-			}
-			else{
+			} else {
 				str += "|";
 			}
 			for (int i = 0; i < bl.getLaenge(); i++) {
 				char zas = ' ';
-				for(Zug tschu : z){
-					if(tschu.getPosition() == n){
+				for (Zug tschu : z) {
+					if (tschu.getPosition() == n) {
 						zas = tschu.getName();
 					}
 				}
-				if(zas == ' '){
+				if (zas == ' ') {
 					str += "-";
-				}
-				else{
+				} else {
 					str += zas;
 					zas = ' ';
 				}
@@ -70,15 +75,14 @@ public class Simulation {
 		}
 		for (int i = n; i < laenge; i++) {
 			char zas = ' ';
-			for(Zug tschu : z){
-				if(tschu.getPosition() == n){
+			for (Zug tschu : z) {
+				if (tschu.getPosition() == n) {
 					zas = tschu.getName();
 				}
 			}
-			if(zas == ' '){
+			if (zas == ' ') {
 				str += "-";
-			}
-			else{
+			} else {
 				str += zas;
 				zas = ' ';
 			}
@@ -87,7 +91,11 @@ public class Simulation {
 		return str;
 	}
 
-
+	/**
+	 * Main-Methode Erzeugung der Simulation
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		new Simulation();
 	}
