@@ -3,12 +3,12 @@ package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung4;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Klasse Simulation, um das Fahren der Züge auf der Strecke zu simulieren
- *
- */
+
 public class Simulation {
 	private static List<Zug> z = new ArrayList<Zug>();
+	private static Thread A, B, C, D, E;
+	public static int zuegeImZiel = 0;
+	private static List<Thread> threadPool = new ArrayList<Thread>();
 
 	public Simulation() {
 		Strecke a = new Strecke(70);
@@ -20,29 +20,56 @@ public class Simulation {
 		a.addBlock(10);
 		a.addBlock(5);
 		a.addBlock(5);
+		// parameter 2 = startposition parameter 3 = geschwindikeit
 		z.add(new Zug('A', 6, 5, a));
 		z.add(new Zug('B', 11, 15, a));
 		z.add(new Zug('C', 20, 5, a));
 		z.add(new Zug('D', 30, 10, a));
 		z.add(new Zug('E', 45, 6, a));
+		//z.add(new Zug('E', 3, 10, a)); // zur simulation eines unfalls
 
 		System.out.println(printStrecke(a.getLaenge(), a.getBlockList()));
 
-		Thread eins = new Thread(z.get(0));
-		Thread zwei = new Thread(z.get(1));
-		Thread drei = new Thread(z.get(2));
-		Thread vier = new Thread(z.get(3));
-		Thread fuenf = new Thread(z.get(4));
+		A = new Thread(z.get(0), "" + z.get(0).getName());
+		B = new Thread(z.get(1), "" + z.get(1).getName());
+		C = new Thread(z.get(2), "" + z.get(2).getName());
+		D = new Thread(z.get(3), "" + z.get(3).getName());
+		E = new Thread(z.get(4), "" + z.get(4).getName());
 
-		eins.start();
-		zwei.start();
-		drei.start();
-		vier.start();
-		fuenf.start();
+		threadPool.add(A);
+		threadPool.add(B);
+		threadPool.add(C);
+		threadPool.add(D);
+		threadPool.add(E);
+
+		A.start();
+		B.start();
+		C.start();
+		D.start();
+		E.start();
+	}
+
+	public static void unfallpruefer(int position, char name) throws SimulationException {
+		for (Zug zugi : z) {
+			if (zugi.getPosition() == position && name != zugi.getName()) {
+				for (Thread zugThread : threadPool) {
+					if (zugThread.getName().equals("" + name)) {
+						zugThread.interrupt();
+						throw new SimulationException();
+					}
+				}
+			}
+		}
+	}
+
+	public static void letzterZug() {
+		if (z.size() == zuegeImZiel) {
+			System.out.println("simulation beendet");
+		}
 	}
 
 	/**
-	 * Gibt die Strecke mit den aktuellen Signalen und Zügen zurück
+	 * Gibt die Strecke mit den aktuellen Signalen und ZÃ¼gen zurÃ¼ck
 	 * 
 	 * @param laenge
 	 * @param b
@@ -91,11 +118,6 @@ public class Simulation {
 		return str;
 	}
 
-	/**
-	 * Main-Methode Erzeugung der Simulation
-	 * 
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		new Simulation();
 	}
