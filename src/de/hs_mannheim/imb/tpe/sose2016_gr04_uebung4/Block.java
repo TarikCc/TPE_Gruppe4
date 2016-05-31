@@ -1,10 +1,12 @@
 package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung4;
 
 /**
- * Klasse Block mit den Eigenschaften Signal, anfangKm, endKm
+ * Klasse Block in der die Strecke eingeteilt sind mit den Eigenschaften 
+ * Signal (true = grÃ¼n, false 0 rot),
+ * anfangkm und endKm
+ *
  */
 public class Block {
-	// true = grün false = rot
 	private boolean signal = true;
 	private final int anfangKm;
 	private final int endKm;
@@ -12,10 +14,10 @@ public class Block {
 	/**
 	 * Konstruktor
 	 * 
-	 * @param anfangKm
-	 *            , Beginn des Blocks
-	 * @param endKm
-	 *            , Ende des Blocks
+	 * @param anfangKm,
+	 *            Anfang des Blocks
+	 * @param endKm,
+	 *            Ende des Blocks
 	 */
 	public Block(int anfangKm, int endKm) {
 		this.anfangKm = anfangKm;
@@ -23,21 +25,21 @@ public class Block {
 	}
 
 	/**
-	 * ändert Wert von Signal auf false (rot)
+	 * Ã¤ndert Signal auf false (rot)
 	 */
 	public synchronized void setEinfahren() {
 		signal = false;
 	}
 
 	/**
-	 * ändert Wert von Signal auf true (grün)
+	 * Ã¤ndert Signal auf true (grÃ¼n)
 	 */
 	public synchronized void setAusfahren() {
 		signal = true;
 	}
 
 	/**
-	 * Gibt Ende des Blocks zurück
+	 * Gibt EndKm zurÃ¼ck des Blocks
 	 * 
 	 * @return endKm
 	 */
@@ -46,7 +48,7 @@ public class Block {
 	}
 
 	/**
-	 * Gibt Anfang des Blocks zurück
+	 * Gibt AnfangKm zurÃ¼ck des blocks
 	 * 
 	 * @return anfangKm
 	 */
@@ -55,7 +57,7 @@ public class Block {
 	}
 
 	/**
-	 * Gibt Signal des Blocks zurück
+	 * Gibt Signal zurÃ¼ck
 	 * 
 	 * @return signal
 	 */
@@ -64,12 +66,14 @@ public class Block {
 	}
 
 	/**
-	 * Gibt die Länge des Blocks zurück
+	 * Gibt LÃ¤nge des Blocks zurÃ¼ck
 	 * 
-	 * @return endKm - anfangKm (Länge)
+	 * @return endKm - anfangKm
 	 */
 	public int getLaenge() {
 		return endKm - anfangKm;
 	}
+
+}
 
 }
