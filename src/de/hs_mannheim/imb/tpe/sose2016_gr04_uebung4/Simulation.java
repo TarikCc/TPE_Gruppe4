@@ -3,7 +3,11 @@ package de.hs_mannheim.imb.tpe.sose2016_gr04_uebung4;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Klasse Simulation, erstellt eine Strecke die die Blöcke , die Züge und
+ * startet diese
+ *
+ */
 public class Simulation {
 	private static List<Zug> z = new ArrayList<Zug>();
 	private static Thread A, B, C, D, E;
@@ -26,7 +30,7 @@ public class Simulation {
 		z.add(new Zug('C', 20, 5, a));
 		z.add(new Zug('D', 30, 10, a));
 		z.add(new Zug('E', 45, 6, a));
-		//z.add(new Zug('E', 3, 10, a)); // zur simulation eines unfalls
+		// z.add(new Zug('E', 3, 10, a)); // zur simulation eines unfalls
 
 		System.out.println(printStrecke(a.getLaenge(), a.getBlockList()));
 
@@ -49,6 +53,13 @@ public class Simulation {
 		E.start();
 	}
 
+	/**
+	 * prüft ob Unfall stattdindet und unterbricht den Thread(zug)
+	 * 
+	 * @param position
+	 * @param name
+	 * @throws SimulationException
+	 */
 	public static void unfallpruefer(int position, char name) throws SimulationException {
 		for (Zug zugi : z) {
 			if (zugi.getPosition() == position && name != zugi.getName()) {
@@ -62,9 +73,13 @@ public class Simulation {
 		}
 	}
 
+	/**
+	 * Ermittelt den letzten Zug der ins Ziel kommt und Simultion beendet
+	 * auszugeben
+	 */
 	public static void letzterZug() {
 		if (z.size() == zuegeImZiel) {
-			System.out.println("simulation beendet");
+			System.out.println("Simulation beendet");
 		}
 	}
 
